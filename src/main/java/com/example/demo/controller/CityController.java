@@ -55,9 +55,10 @@ public class CityController {
 
     @PostMapping("/edit")
     public ModelAndView editCustomer(@ModelAttribute City city) {
+        City city1=city;
         iCityService.save(city);
         ModelAndView modelAndView = new ModelAndView("city/list");
-        modelAndView.addObject("city", city);
+        modelAndView.addObject("city", iCityService.findAll());
         return modelAndView;
     }
 

@@ -12,8 +12,8 @@
     </a>
 </p>
 <div id="form">
-    <form th:object="${city}"
-          method="post" novalidate="novalidate">
+    <form action="/cities/edit" th:object="${city}"
+          method="post">
         <input type="hidden" name="id" th:value="${city.getId()}">
         <div>
             <label>Name</label>
@@ -21,19 +21,19 @@
         </div>
         <div>
             <label>acreage</label>
-            <input type="text" name="email" th:value="${city.getAcreage()}">
+            <input type="text" name="acreage" th:value="${city.getAcreage()}">
         </div>
         <div>
             <label>population</label>
-            <input type="text" name="address" th:value="${city.getPopulation()}">
+            <input type="text" name="population" th:value="${city.getPopulation()}">
         </div>
         <div>
             <label>GDP</label>
-            <input type="text" name="address" th:value="${city.getGDP()}">
+            <input type="text" name="GDP" th:value="${city.getGDP()}">
         </div>
         <div>
             <label>description</label>
-            <input type="text" name="address" th:value="${city.getDescription()}">
+            <input type="text" name="description" th:value="${city.getDescription()}">
         </div>
 
         <div>
