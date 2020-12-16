@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Modify Custommer</h3>
+<p>
+    <a th:href="@{/cities}">
+        Back to city list
+    </a>
+</p>
+<div id="form">
+    <form th:object="${city}"
+          method="post" novalidate="novalidate">
+        <input type="hidden" name="id" th:value="${city.getId()}">
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" th:value="${city.getName()}">
+        </div>
+        <div>
+            <label>acreage</label>
+            <input type="text" name="email" th:value="${city.getAcreage()}">
+        </div>
+        <div>
+            <label>population</label>
+            <input type="text" name="address" th:value="${city.getPopulation()}">
+        </div>
+        <div>
+            <label>GDP</label>
+            <input type="text" name="address" th:value="${city.getGDP()}">
+        </div>
+        <div>
+            <label>description</label>
+            <input type="text" name="address" th:value="${city.getDescription()}">
+        </div>
+
+        <div>
+            <label>City</label>
+            <select name="country">
+                <option th:each="c:${country}"
+                        th:value="${c.id}"
+                        th:text="${c.name}"
+                        th:selected="(${c.id} == *{country.id})"
+                ></option>
+            </select>
+        </div>
+        <input type="submit" value="EDIT">
+    </form>
+
+
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>>

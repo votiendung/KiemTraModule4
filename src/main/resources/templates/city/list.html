@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+  <meta charset="UTF-8">
+  <title>CustomerList</title>
+</head>
+<body>
+<h3>Customers</h3>
+
+<p><a th:href="@{/cities/create}">Add New City</a></p>
+<form action="">
+  Search by Name:
+  <input type="text" name="name">
+  <input type="submit" value="Search">
+</form>
+
+<table id="customers" border="1">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Acreage</th>
+    <th>Population</th>
+    <th>GDP</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="city: ${city}">
+    <td th:text="${city.getName()}"></td>
+    <td th:text="${city.getAcreage()}"></td>
+    <td th:text="${city.getPopulation()}"></td>
+    <td th:text="${city.getGDP()}"></td>
+    <td th:text="${city.getDescription()}"></td>
+    <td><a th:href="@{/cities/edit/__${city.getId()}__}">edit</a></td>
+    <td><a th:href="@{/cities/delete/__${city.getId()}__}">delete</a></td>
+  </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

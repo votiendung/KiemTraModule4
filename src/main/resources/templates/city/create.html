@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add City</h3>
+String name, Long acreage, Long population, Long GDP, String description)
+<p>
+    <a th:href="@{/cities}">Back to City List</a>
+</p>
+<div id="form">
+    <form th:object="${city}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" name="name"/>
+        </div>
+        <div>
+            <label>Acreage</label>
+            <input type="text" name="acreage"/>
+        </div>
+        <div>
+            <label>Population</label>
+            <input type="text" name="population"/>
+        </div>
+        <div>
+            <label>GDP</label>
+            <input type="text" name="GDP"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" name="description"/>
+        </div>
+
+        <div>
+            <label>Country</label>
+            <select name="country" id="">
+                <option th:each="c:${country}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
+        </div>
+
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
